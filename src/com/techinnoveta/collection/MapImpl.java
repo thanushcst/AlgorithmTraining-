@@ -11,13 +11,27 @@ public class MapImpl {
 		map.put(100, "Amit");
 		map.put(101, "Vijay");
 		map.put(102, "Rahul");
-		map.put(101, "Rahul");
-		for (Map.Entry m : map.entrySet()) {
-			System.out.println(m.getKey() + " " + m.getValue());
+		map.put(null, "Rahul");
+		System.out.println("<<<<<<<<<<<<<<< MAP >>>>>>>>>>>>>>>");
+		Set<Integer> keys = map.keySet();
+		for (Integer key : keys) {
+			System.out.println(key + " " + map.get(key));
 		}
+		/*for (Map.Entry m : map.entrySet()) {
+			System.out.println(m.getKey() + " " + m.getValue());
+		}*/
+		System.out.println("<<<<<<<<<<<<<<< END >>>>>>>>>>>>>>>");
 		
 		Set<String> set=new HashSet<String>();  
-
+		set.add("TEST");
+		set.add("TEST");
+		set.add("TEST2");
+		set.add(null);
+		System.out.println("<<<<<<<<<<<<<<< SET >>>>>>>>>>>>>>>");
+		for (String string : set) {
+			System.out.println(string);
+		}
+		System.out.println("<<<<<<<<<<<<<<< END >>>>>>>>>>>>>>>");
 	}
 
 }
