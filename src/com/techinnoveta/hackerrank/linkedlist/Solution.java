@@ -69,11 +69,10 @@ class LinkedList {
 			Node currentNode = start;
 			while (currentNode.getNext() != null) {
 				if(start.getData() == currentNode.getNext().getData()) {
-					if(currentNode.getNext() != null) {
-						currentNode.setNext(currentNode.getNext().getNext());
-					}
+					currentNode.setNext(currentNode.getNext().getNext());
+				} else {
+					currentNode = currentNode.getNext();
 				}
-				currentNode = currentNode.getNext();
 			}		
 			start = start.getNext();
 		}
