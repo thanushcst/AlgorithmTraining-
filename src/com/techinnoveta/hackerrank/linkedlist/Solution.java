@@ -1,69 +1,114 @@
 package com.techinnoveta.hackerrank.linkedlist;
 
-import java.util.Scanner;
+public class Solution {
+	public static void main(String[] arg) {
+		LinkedList linkedList = new LinkedList();
+		linkedList.add(10);
+		linkedList.add(15);
+		linkedList.add(30);
+		linkedList.add(30);
+		linkedList.add(30);
+		linkedList.add(30);
+		linkedList.add(30);
+		linkedList.add(5);
+		linkedList.add(5);
+		linkedList.add(5);
+		linkedList.add(12);
 
-class Node {
-	int data;
-	Node next;
+		linkedList.display();
+		
+		System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"); 
+		
+		linkedList.removeDupilicate();
+		
+		System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+		
+		linkedList.display();
 
-	Node(int d) {
-		data = d;
-		next = null;
+	}
+}
+
+class LinkedList {
+	private Node node;
+	private Node head;
+
+	public LinkedList() {
+		this.node = new Node();
+	}
+
+	public void add(int data) {
+		if (this.head == null) {
+			this.node.setData(data);
+			this.node.setNext(null);
+			this.head = this.node;
+		} else {
+			Node node = new Node(head, data);
+			this.head = node;
+		}
+	}
+
+	public void display() {
+		Node currentNode = this.head;
+		while (currentNode != null) {
+			System.out.print(currentNode.getData() + " ");
+			currentNode = currentNode.getNext();
+		}
+		System.out.println("");
+	}
+
+	public void remove() {
+		while (this.head != null) {
+			System.out.print(this.head + " ");
+			this.head = this.head.getNext();
+		}
+	}
+	
+	public void removeDupilicate() {
+		Node start = this.head;
+		while (start != null && start.getNext() != null) {
+			Node currentNode = start;
+			while (currentNode.getNext() != null) {
+				if(start.getData() == currentNode.getNext().getData()) {
+					if(currentNode.getNext() != null) {
+						currentNode.setNext(currentNode.getNext().getNext());
+					}
+				}
+				currentNode = currentNode.getNext();
+			}		
+			start = start.getNext();
+		}
 	}
 
 }
 
-class Solution {
-	public static Node removeDuplicates(Node head) {
-		Node start = head;
-		while (start != null) {
-			Node current = start.next;
-			while (current != null) {
-				if (current.data == start.data) {
-					start.next = start.next.next;
-				}
-				current = current.next;
-			}
-			start = start.next;
-		}
-		return head;
+class Node {
+	private Node next;
+	private int data;
+
+	public Node() {
+		this.next = null;
+		this.data = 0;
 	}
 
-	public static Node insert(Node head, int data) {
-		Node p = new Node(data);
-		if (head == null)
-			head = p;
-		else if (head.next == null)
-			head.next = p;
-		else {
-			Node start = head;
-			while (start.next != null) {
-				start = start.next;
-			}
-			start.next = p;
-
-		}
-		return head;
+	public Node(Node next, int data) {
+		this.next = next;
+		this.data = data;
 	}
 
-	public static void display(Node head) {
-		Node start = head;
-		while (start != null) {
-			System.out.print(start.data + " ");
-			start = start.next;
-		}
+	public Node getNext() {
+		return next;
 	}
 
-	public static void main(String args[]) {
-		Scanner sc = new Scanner(System.in);
-		Node head = null;
-		int T = sc.nextInt();
-		while (T-- > 0) {
-			int ele = sc.nextInt();
-			head = insert(head, ele);
-		}
-		// head = removeDuplicates(head);
-		display(head);
-
+	public void setNext(Node next) {
+		this.next = next;
 	}
+
+	public int getData() {
+		return data;
+	}
+
+	public void setData(int data) {
+		this.data = data;
+	}
+
 }
