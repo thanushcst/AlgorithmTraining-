@@ -3,7 +3,7 @@ package com.techinnoveta.algorithm;
 public class SquareRoot {
 
 	public static void main(String[] args) {
-		System.out.println(squareRoot(30));
+		System.out.println(squareRoot(27));
 	}
 	
 	public static double squareRoot(int value){

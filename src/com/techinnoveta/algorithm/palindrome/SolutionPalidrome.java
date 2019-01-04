@@ -10,7 +10,7 @@ import java.util.Stack;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Solution {
+public class SolutionPalidrome {
 
 	Queue<Character> q = new LinkedList<>();
 	Stack<Character> stack = new Stack<Character>();
@@ -39,8 +39,31 @@ public class Solution {
 	}
 
 	public static void main(String[] args) {
-		
-		Scanner scan = new Scanner(System.in);
+		Scanner scanner = new Scanner(System.in);
+		int N = scanner.nextInt();
+        scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
+
+        for (int NItr = 0; NItr < N; NItr++) {
+            String[] firstNameEmailID = scanner.nextLine().split(" ");
+
+            String firstName = firstNameEmailID[0];
+
+            String emailID = firstNameEmailID[1];
+            
+            Pattern pattern = Pattern.compile("@gmail.com");    
+            Matcher matcher = pattern.matcher(emailID);  
+            ArrayList<String> list = new ArrayList<String>();
+            if(matcher.find()){
+                list.add(firstName);
+            }
+            Collections.sort(list);
+            for (String string : list) {
+                System.out.println(firstName);
+            }
+        }
+
+        scanner.close();
+		/*Scanner scan = new Scanner(System.in);
 		String input = scan.nextLine();
 		scan.close();
 
@@ -67,6 +90,6 @@ public class Solution {
 		}
 
 		// Finally, print whether string s is palindrome or not.
-		System.out.println("The word, " + input + ", is " + ((!isPalindrome) ? "not a palindrome." : "a palindrome."));
+		System.out.println("The word, " + input + ", is " + ((!isPalindrome) ? "not a palindrome." : "a palindrome."));*/
 	}
 }

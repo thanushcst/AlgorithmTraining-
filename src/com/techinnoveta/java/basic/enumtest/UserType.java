@@ -1,7 +1,6 @@
 package com.techinnoveta.java.basic.enumtest;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public enum UserType {
