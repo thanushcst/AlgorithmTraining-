@@ -8,10 +8,10 @@ public class RecursionTraining {
 		System.out.println("revrese " + revrese("dinesh"));
 		int[] sort = { 34, 42, 54, 78, 5, 8, 3, 1, 77 };
 		sort = bubbleSort(sort);
-		System.out.println("bubbleSort " + Arrays.toString(sort));
-		System.out.println(revrese("T"));
+		//System.out.println("bubbleSort " + Arrays.toString(sort));
+		System.out.println(revrese("TEST"));
 		int[] arr = { 19, 32, 11, 23 };
-		arrayMinimum(arr);
+		//arrayMinimum(arr);
 	}
 
 	public static int arrayMinimum(int[] inputArray) {
@@ -40,8 +40,7 @@ public class RecursionTraining {
 		if (str.length() <= 1) {
 			return str;
 		}
-		System.out.println(str);
-		return revrese(str.substring(1)) + str.charAt(0);
+		return revrese(str.substring(1)) + str.substring(0, 1);
 	}
 
 	public static int[] bubbleSort(int[] array) {
