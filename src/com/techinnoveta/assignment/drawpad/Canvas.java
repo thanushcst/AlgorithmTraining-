@@ -3,14 +3,14 @@ package com.techinnoveta.assignment.drawpad;
 import java.util.HashMap;
 import java.util.Map;
 
-public class DrawingCanvas {
+public class Canvas {
 	private Map<XYCodilation, String> map = new HashMap<XYCodilation, String>();
 
 	private int canvasHeight;
 
 	private int canvasWidth;
 
-	public DrawingCanvas(int canvasWidth, int canvasHeight) {
+	public Canvas(int canvasWidth, int canvasHeight) {
 		this.canvasWidth = canvasWidth;
 		this.canvasHeight = canvasHeight;
 	}

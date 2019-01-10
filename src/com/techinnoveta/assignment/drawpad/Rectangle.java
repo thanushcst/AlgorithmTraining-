@@ -17,33 +17,36 @@ public class Rectangle implements Shape {
 	}
 
 	@Override
-	public void drawCodilation(String line) throws ArrayIndexOutOfBoundsException, IllegalArgumentException{
+	public void drawCodilation(String line) throws ArrayIndexOutOfBoundsException, IllegalArgumentException {
 		String[] lineArr = line.split(" ");
+
 		int x1 = Integer.parseInt(lineArr[1]);
 		int y1 = Integer.parseInt(lineArr[2]);
 		int x2 = Integer.parseInt(lineArr[3]);
 		int y2 = Integer.parseInt(lineArr[4]);
-
-		for (int i = 1; i <= canvasHeight; i++) {
-			if (i >= y1 && i <= canvasHeight) {
-				for (int j = 1; j <= canvasWidth; j++) {
-					if (j >= x1 && j <= x2) {
-						if (j == x1 || j == x2) {
-							XYCodilation xyCodilation = new XYCodilation(j, i);
-							map.put(xyCodilation, "x");
-						} else if (i == y1 || i == y2) {
-							XYCodilation xyCodilation = new XYCodilation(j, i);
-							map.put(xyCodilation, "x");
+		if (x1 < x2 && y1 < y2) {
+			for (int i = 1; i <= canvasHeight; i++) {
+				if (i >= y1 && i <= y2) {
+					for (int j = 1; j <= canvasWidth; j++) {
+						if (j >= x1 && j <= x2) {
+							if (j == x1 || j == x2) {
+								XYCodilation xyCodilation = new XYCodilation(j, i);
+								map.put(xyCodilation, "x");
+							} else if (i == y1 || i == y2) {
+								XYCodilation xyCodilation = new XYCodilation(j, i);
+								map.put(xyCodilation, "x");
+							}
 						}
-					}
 
+					}
 				}
 			}
+		} else {
+			System.out.println("Invalid argument");
 		}
-		
-		
+
 	}
-	
+
 	public Map<XYCodilation, String> getMap() {
 		return map;
 	}

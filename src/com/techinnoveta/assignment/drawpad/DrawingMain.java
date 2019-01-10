@@ -5,12 +5,12 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class DrawingMain {
-	DrawingCanvas canvas;
+	Canvas canvas;
 	FillColor fillColor;
-	
+
 	Rectangle rectangle;
 	Line line;
-	
+
 	private Map<XYCodilation, String> map = new HashMap<XYCodilation, String>();
 	int canvasHeight;
 	int canvasWidth;
@@ -45,7 +45,7 @@ public class DrawingMain {
 		if (action.toUpperCase().equals("C")) {
 			canvasWidth = Integer.parseInt(lineArr[1]);
 			canvasHeight = Integer.parseInt(lineArr[2]);
-			canvas = new DrawingCanvas(canvasWidth, canvasHeight);
+			canvas = new Canvas(canvasWidth, canvasHeight);
 			canvas.drawMainCanvas();
 			map.putAll(canvas.getMap());
 		} else if (action.toUpperCase().equals("L")) {
