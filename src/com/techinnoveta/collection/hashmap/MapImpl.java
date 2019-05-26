@@ -1,6 +1,7 @@
 package com.techinnoveta.collection.hashmap;
 
 import java.util.ArrayList;
+
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -36,12 +37,12 @@ public class MapImpl {
 		list.add(new Emplayee(6, "SIVA"));
 		list.add(new Emplayee(7, "RAJA"));
 
-		/*
-		 * Collections.sort(list); for (Emplayee emp : list) {
-		 * System.out.println(emp.getName()); }
-		 */
+		Collections.sort(list);
+		for (Emplayee emp : list) {
+			System.out.println(emp.getName());
+		}
 
-		Collections.sort(list, new Comparator<Emplayee>() {
+		/*Collections.sort(list, new Comparator<Emplayee>() {
 			@Override
 			public int compare(Emplayee o1, Emplayee o2) {
 				return o1.getName().compareTo(o2.getName());
@@ -50,7 +51,7 @@ public class MapImpl {
 
 		for (Emplayee emp : list) {
 			System.out.println(emp.getName());
-		}
+		}*/
 	}
 }
 
