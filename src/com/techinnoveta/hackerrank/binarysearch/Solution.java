@@ -1,45 +1,31 @@
 package com.techinnoveta.hackerrank.binarysearch;
 
-import java.util.Scanner;
-class Node{
-    Node left,right;
-    int data;
-    Node(int data){
-        this.data=data;
-        left=right=null;
-    }
-}
-class Solution{
-	public static Node insert(Node root,int data){
-        if(root==null){
-            return new Node(data);
-        }
-        else{
-            Node cur;
-            if(data<=root.data){
-                cur=insert(root.left,data);
-                root.left=cur;
-            }
-            else{
-                cur=insert(root.right,data);
-                root.right=cur;
-            }
-            return root;
-        }
-    }
-    public static void main(String args[]){
-            Scanner sc=new Scanner(System.in);
-            int T=sc.nextInt();
-            Node root=null;
-            while(T-->0){
-                int data=sc.nextInt();
-                root=insert(root,data);
-            }
-            int height=getHeight(root);
-            System.out.println(height);
-        }
-	private static int getHeight(Node root) {
-		// TODO Auto-generated method stub
-		return 0;
-	}	
+class Solution {
+	public static void main(String args[]) {
+		int arr[] = { 2, 3, 4, 6, 9, 10, 23, 35, 39, 40 };
+		int n = arr.length;
+		int x = 11;
+		int result = binarySearch(arr, 0, n - 1, x);
+		if (result == -1)
+			System.out.println("Element not present");
+		else
+			System.out.println("Element found at index " + result);
+	}
+
+	private static int binarySearch(int[] arr, int low, int high, int x) {
+		if(high >= low) {
+			int mid = low + (high - low) / 2;
+			System.out.println("MID - " + mid);
+			
+			if(arr[mid] == x) {
+				return mid;
+			} else if(arr[mid] > x) {
+				return binarySearch(arr, low, mid - 1, x);
+			} else {
+				return binarySearch(arr, mid + 1, high, x);
+			}
+		}
+		return -1;
+	}
+
 }

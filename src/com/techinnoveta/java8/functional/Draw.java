@@ -11,6 +11,10 @@ interface DrawInterface {
 	static void click() {
 		System.out.println("CLICK");
 	}
+	
+	static void click_() {
+		System.out.println("CLICK");
+	}
 
 	default void click_test() {
 		System.out.println("CLICK");
